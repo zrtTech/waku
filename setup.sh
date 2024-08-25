@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "Sourcing Cargo environment..."
-. "$HOME/.cargo/env"
-
-echo "Checking Rust version..."
-rustc --version
-
 # Установка других необходимых пакетов
 echo "Updating and upgrading system packages..."
 sudo apt update && sudo apt upgrade -y
@@ -16,6 +10,12 @@ sudo apt-get install -y build-essential git libpq5 jq
 
 echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+echo "Sourcing Cargo environment..."
+. "$HOME/.cargo/env"
+
+echo "Checking Rust version..."
+rustc --version
 
 echo "Sourcing Cargo environment..."
 source "$HOME/.cargo/env"
